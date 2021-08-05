@@ -10,11 +10,7 @@ userRouter.get("/:id", userController.getUser);
 
 userRouter.post("/", userController.register);
 
-userRouter.delete("/:id", (req, res) => {
-  res.status(200).send({
-    message: "Hello World",
-  });
-});
+userRouter.delete("/:id", userController.deleteUser);
 
 module.exports = {
   userRouter: userRouter,

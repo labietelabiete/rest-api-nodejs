@@ -54,9 +54,23 @@ async function getUsers(req, res, next) {
   }
 }
 
+async function deleteUser(req, res, next) {
+  const userId = req.params.id
+
+  try {
+    const user = await db.User.deleteOne({ _id: userId }, { name: 1 });
+    return res.status(200).send({
+      user: user,
+    });
+  } catch (err) {
+    return res.status(500).send("error");
+  }
+}
+
 module.exports = {
   register: register,
   signIn: signIn,
   getUser: getUser,
   getUsers: getUsers,
+  deleteUser: deleteUser,
 };
