@@ -12,11 +12,18 @@ userRouter.get("/:id", (req, res) => {
   });
 });
 
-userRouter.post("/", userController.register);
+// userRouter.post("/", userController.register);
 
-userRouter.patch("/", (req, res) => {
+userRouter.get("/:id", (req, res) => {
   res.status(200).send({
     message: "Hello World",
+  });
+});
+
+
+userRouter.post("/", (req, res) => {
+  res.status(404).send({
+    message: "Post done",
   });
 });
 

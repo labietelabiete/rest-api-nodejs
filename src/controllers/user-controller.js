@@ -26,11 +26,14 @@ async function register(req, res, next) {
   }
 }
 
-async function signIn(req, res, next) {}
+async function signIn(req, res, next) { }
 
 async function getUsers(req, res, next) {
   try {
     const users = await db.User.find();
+    // Para paginacion
+    // const users = await db.User.find().limit(10).offset(2);
+
     return res.status(200).send({
       users: users,
     });
