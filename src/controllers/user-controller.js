@@ -21,6 +21,7 @@ async function register(req, res, next) {
     });
   } catch (err) {
     return res.status(500).send({
+      message: "Error creating user",
       error: err,
     });
   }

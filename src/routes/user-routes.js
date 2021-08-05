@@ -8,24 +8,11 @@ userRouter.get("/", userController.getUsers);
 
 userRouter.get("/:id", (req, res) => {
   res.status(200).send({
-    message: "Hello World",
+    message: `Getting ${req.body._id}`,
   });
 });
 
-// userRouter.post("/", userController.register);
-
-userRouter.get("/:id", (req, res) => {
-  res.status(200).send({
-    message: "Hello World",
-  });
-});
-
-
-userRouter.post("/", (req, res) => {
-  res.status(404).send({
-    message: "Post done",
-  });
-});
+userRouter.post("/", userController.register);
 
 userRouter.delete("/:id", (req, res) => {
   res.status(200).send({
