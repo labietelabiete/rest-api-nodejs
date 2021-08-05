@@ -1,28 +1,31 @@
-const Router = require('express').Router;
+const Router = require("express").Router;
 
+const { userController } = require("../controllers");
+// const { authMiddleware } = require("../middlewares");
 const userRouter = Router();
 
-// In server.js we have already specified the beggining of the endpoint as /user
-userRouter.get("/", (req, res) => {
-
-});
+userRouter.get("/", userController.getUsers);
 
 userRouter.get("/:id", (req, res) => {
-
+  res.status(200).send({
+    message: "Hello World",
+  });
 });
 
-userRouter.post("/:", (req, res) => {
-
-});
+userRouter.post("/", userController.register);
 
 userRouter.patch("/", (req, res) => {
-
+  res.status(200).send({
+    message: "Hello World",
+  });
 });
 
 userRouter.delete("/:id", (req, res) => {
-
+  res.status(200).send({
+    message: "Hello World",
+  });
 });
 
 module.exports = {
   userRouter: userRouter,
-}
+};
