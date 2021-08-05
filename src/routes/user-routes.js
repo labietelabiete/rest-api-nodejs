@@ -6,11 +6,7 @@ const userRouter = Router();
 
 userRouter.get("/", userController.getUsers);
 
-userRouter.get("/:id", (req, res) => {
-  res.status(200).send({
-    message: `Getting ${req.body._id}`,
-  });
-});
+userRouter.get("/:id", userController.getUser);
 
 userRouter.post("/", userController.register);
 
