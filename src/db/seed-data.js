@@ -77,3 +77,15 @@ async function seedMovies() {
     },
   ]);
 }
+
+
+async function seedPersons() {
+  await db.persons.insertOne(
+    {
+      "name": "Michael Jordan",
+      "dateOfBirth": new Date(1963 - 02 - 17),
+      "placeOfBirth": "New York",
+      "roles": ["actor"],
+    }
+  );
+}
