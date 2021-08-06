@@ -15,12 +15,15 @@ const MovieSchema = Schema(
       default: undefined,
       required: true
     },
-    roles: [{
-      type: String,
-      enum: ['actor', 'actress', 'director', 'camera'],
-      required: true,
-    }]
+    // roles: [{
+    //   type: String,
+    //   enum: ['actor', 'actress', 'director', 'camera'],
+    // }]
+  },
+  {
+    timestamps: true,
   }
+
 );
 
 const Movie = mongoose.model("movie", MovieSchema);

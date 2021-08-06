@@ -10,7 +10,7 @@ movieRouter.get("/:id", movieController.getMovie);
 
 movieRouter.post("/", movieController.addMovie);
 
-movieRouter.put("/:id", movieController.updateMovie);
+movieRouter.patch("/:id", movieController.updateMovie);
 
 module.exports = {
   movieRouter: movieRouter,

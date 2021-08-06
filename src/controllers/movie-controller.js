@@ -26,7 +26,7 @@ async function getMovie(req, res, next) {
 }
 
 async function addMovie(req, res, next) {
-  const { title, releaseYear, genres, duration, cast, roles } = req.body;
+  const { title, releaseYear, genres, duration, cast } = req.body;
 
   try {
     const { _id } = await db.Movie.create({
@@ -35,7 +35,6 @@ async function addMovie(req, res, next) {
       genres: genres,
       duration: duration,
       cast: cast,
-      roles: roles,
     });
 
     return res.status(201).send({
@@ -52,7 +51,7 @@ async function addMovie(req, res, next) {
 async function updateMovie(req, res, next) {
   const movieId = req.params.id;
 
-  const { title, releaseYear, genres, duration, cast, roles } = req.body;
+  const { title, releaseYear, genres, duration, cast } = req.body;
 
   try {
     const movie = await db.Movie.findOneAndUpdate({ _id: movieId }, {
@@ -62,7 +61,6 @@ async function updateMovie(req, res, next) {
         genres: genres,
         duration: duration,
         cast: cast,
-        roles: roles,
       }
     })
     return res.status(200).send({
